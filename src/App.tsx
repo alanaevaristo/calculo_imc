@@ -8,6 +8,7 @@ const App = () => {
   
   const [altura, setAltura] = useState(0);
   const [peso, setPeso]     = useState(0);
+  const [toShow, setToShow] = useState(null);
 
   const handleCalc = () => {
     if (altura && peso) {
@@ -17,6 +18,7 @@ const App = () => {
       alert("Informe a Altura e o Peso")
     }
   }
+  
 
   return(
     <div className={styles.main}>
@@ -25,6 +27,7 @@ const App = () => {
               <img src={poweredImage} alt="" width={150} />
             </div>
         </header>
+
         <div className={styles.container}>
             <div className={styles.leftSide}>
               <h1>Calculo do IMC</h1>
@@ -44,17 +47,27 @@ const App = () => {
               />
 
               <button onClick={handleCalc}>Calcular</button>
-
-            </div>
+     
+             </div>
+        </div>
             
-            <div className={styles.rightSide}>
+        <div className={styles.rightSide}>
+              {!toShow && 
               <div className={styles.grid}>
                   {levels.map( (item, key) => (
                     <GridItem key={key} item={item}/>
                   ) )}
               </div>
-            </div>
+              }
+              {toShow &&
+                <div className={styles.rightBig}> 
+                  <div></div>
+                
+                </div>
+              }
+    
         </div>
+             
     </div>
   )
 }
