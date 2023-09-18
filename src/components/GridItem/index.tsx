@@ -23,6 +23,9 @@ export const GridItem = ({item}:Props) => {
         IMC está entre <strong>{item.imc[0]}</strong> e <strong>{item.imc[1]}</strong>
       </>
     </div>
+    {item.yourImc &&
+    <div className={styles.yourImc}> Seu IMC é {item.yourImc.toFixed(2)}</div>
+    }
     </div>
 )
 }

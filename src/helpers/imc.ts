@@ -18,6 +18,7 @@ export const calculateImc = (altura:number, peso:number) => {
 
     for ( let i in levels) {
       if ( imc >= levels[i].imc[0] && imc <= levels[i].imc[1]){
+        let levelCopy: Level = {...levels[i]};
          levels[i].yourImc = imc;
          return levels[i]
       }
